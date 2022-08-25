@@ -1,0 +1,24 @@
+{
+  "name": "fu-test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "easy-soap-request": "^4.8.0",
+    "express": "~4.16.1",
+    "express-xml-bodyparser": "^0.3.0",
+    "http-errors": "~1.6.3",
+    "jade": "^1.9.2",
+    "morgan": "~1.9.1",
+    "strong-soap": "^3.4.0",
+    "swagger-autogen": "^2.21.5",
+    "swagger-ui-express": "^4.5.0",
+    "xml": "^1.0.1",
+    "xml2js": "^0.4.23",
+    "yarn": "^1.22.19"
+  }
+}
