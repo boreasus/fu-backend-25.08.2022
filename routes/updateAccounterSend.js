@@ -39,11 +39,11 @@ router.get(("/api/fu_mobile/UpdateMutabakatMuhasebeOnayinaGonder/:pGuidMutabakat
         parseString(data, (err, response) => {
             console.log('Res>>>>>>>', response)
             if (err) {
-                return res.status(400).send(err)
+                return res.send({
+                    data: data
+                })
             }
-            return res.send({
-                data: response
-            })
+            
         })
     })
 })

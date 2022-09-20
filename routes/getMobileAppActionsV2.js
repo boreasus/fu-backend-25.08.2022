@@ -14,6 +14,7 @@ const { Module } = require("module");
 app.use(express.urlencoded({ extended: true }));
 const xmlparser = require('express-xml-bodyparser');
 const xml = require("xml");
+const e = require("express");
 app.use(express.json())
 app.use(xmlparser());
 var router = express.Router();
@@ -26,7 +27,7 @@ function getMobileAppActions(FuReferenceNumber,callback) {
     }
     soap.createClient(url, function(err, client) {
         client.Get_Mobile_App_ActionsV2(params, function(err, result) {
-            const data = result["Get_Mobile_App_ActionsV2Result"];
+            const data = result?.["Get_Mobile_App_ActionsV2Result"];
             callback(data)
         })
 
@@ -35,18 +36,22 @@ function getMobileAppActions(FuReferenceNumber,callback) {
 router.get(("/api/fu_mobile/Get_Mobile_App_ActionsV2/:FuReferenceNumber"), (req, res) => {
     const FuReferenceNumber = req.params.FuReferenceNumber
     getMobileAppActions(FuReferenceNumber,(data)=>{
-        parseString(data, (err,response) => {
-            console.log('res', response)
+        if(data){
+            
+        console.log(data);
+        parseString(data, {explicitArray:false},(err,response) => {
             console.log('err', err)
-            if(err) {
-                return res.status(400).send({
-                    message: err.message
-                })
-            }
+        
             return res.send({
                 data: response
             })
         })
+        }
+        else{
+            return res.send({
+                data: "NOK"
+            })
+        }
     });
 
 })

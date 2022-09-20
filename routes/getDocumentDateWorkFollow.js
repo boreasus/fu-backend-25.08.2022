@@ -27,7 +27,6 @@ function getDocumentDate(ImeiNo) {
         }
         client.GetEvrakTeslimTarihiListIstakibi(params, function(err, result) {
             XmlData = result["GetEvrakTeslimTarihiListIstakibiResult"];
-            
             return XmlData;
         })
     })

@@ -35,13 +35,13 @@ function getLawyerAppointments(ImeiNo,callback) {
 router.get(("/api/fu_mobile/Get_LawyerAppointments_ByImeiNo/:ImeiNo"), (req, res) => {
     const ImeiNo = req.params.ImeiNo
     getLawyerAppointments(ImeiNo,(data)=>{
-        parseString(data, (err, response) => {
+        parseString(data, {explicitArray:false}, (err, response) => {
             console.log('res', response)
             if(err) {
                 return res.status(400).send(err)
             }
             return res.send({
-                data: response
+                data: response['Avukat_Randevuları']['Avukat_Randevusu']
             })
         })
     });

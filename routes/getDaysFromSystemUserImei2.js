@@ -19,6 +19,7 @@ function agreementDeals(
     blnKayitIslemi,
     DayOff_Start,
     DayOff_Finish,
+    callback
 ) {
     soap.createClient(url, function(err, client) {
         const params = {
@@ -28,45 +29,34 @@ function agreementDeals(
             DayOff_Finish: DayOff_Finish,
         }
         client.Get_OFF_Days_From_SystemUser_With_Imei2(params, function(err, result) {
-            XmlData = result;
+            const data = result?.Get_OFF_Days_From_SystemUser_With_Imei2Result;
             
-            return XmlData;
+            callback(data);
         })
 
     })
 }
-agreementDeals("123456", true, "10/10/2020 10:10", "12/10/2020 10:10");
 router.get(("/api/fu_mobile/Get_OFF_Days_From_SystemUser_With_Imei2/:Imei2/:blnKayitIslemi/:DayOff_Start/:DayOff_Finish"), (req, res) => {
-    xmldata = XmlData;
-    // parseString(xmldata, function(err, results) {
-    //     let data = JSON.stringify(results);
-    //     data = JSON.parse(data);
-    //     res.send(data);
-    // })
-    res.send(xmldata);
+    const Imei2 = req.params.Imei2;
+    const blnKayitIslemi = req.params.blnKayitIslemi;
+    const DayOff_Start = req.params.DayOff_Start;
+    const DayOff_Finish = req.params.DayOff_Finish;
+    agreementDeals(Imei2,blnKayitIslemi,DayOff_Start,DayOff_Finish,(data)=>{
+      if(data){
+          
+        parseString(data, {explicitArray:false}, (err, response) => {
+            console.log('Res>>>>>>>', response)
+            if (err) {
+                return res.status(400).send(err)
+            }
+            return res.send({
+                data: response['IzinTarihleri']
+            })
+        })
+      }
+    })
 })
 
-let data = {
-    Get_OFF_Days_From_SystemUser_With_Imei2: [{
-        "Imei2": "123456",
-        "blnKayitIslemi": "true",
-        "DayOff_Start": "10/10/2020 10:10",
-        "DayOff_Finish": "12/10/2020 10:10"
-    }]
-}
-router.post(("/api/fu_mobile/Get_OFF_Days_From_SystemUser_With_Imei2"), (req, res) => {
-    let body = req.body;
-    let query = req.query;
-
-    data.Get_OFF_Days_From_SystemUser_With_Imei2.push(body);
-    if (query.type === 'xml') {
-        res.set('Content-type', 'text/xml');
-        return res.send(xml(data, true));
-    } else {
-        return res.send(data);
-    }
-
-})
 
 
 module.exports = router;

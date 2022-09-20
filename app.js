@@ -4,13 +4,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var app = express();
+const mongoose = require('mongoose');
+
+
+
+
 
 //swagger Uıı
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-
+var insertMakbuz = require('./routes/InsertMakbuz')
+var getBankBranchRouter = require('./routes/getBankBranch')
+var InsertOrUpdate_Ziyaret_ByZiyaretId = require('./routes/InsertOrUpdate_Ziyaret_ByZiyaretId')
+var SendLawyerEmailMobileReportRouter = require('./routes/SendLawyerEmailMobileReport');
 var indexRouter = require('./routes/index');
 var checkPinRouter = require('./routes/checkPin');
 var updatePinRouter = require('./routes/updatePin');
@@ -81,6 +88,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/InsertMakbuz',insertMakbuz)
+app.use('/getBankBranch',getBankBranchRouter)
+app.use('/InsertOrUpdateZiyaretByZiyaretId',InsertOrUpdate_Ziyaret_ByZiyaretId);
 app.use('/checkPin', checkPinRouter);
 app.use('/updatePin', updatePinRouter);
 app.use('/agreementDeals', agreementDealsRouter);
@@ -107,6 +117,7 @@ app.use("/getNotificationStandartText", getNotificationStandartTextRouter);
 app.use("/getPerformanceTable", getPerformanceTableRouter);
 app.use("/getPushLogsFuReferenceNumber", getPushLogsFuReferanceNumberRouter);
 app.use("/getPushLogsWithImei2", getPushLogsWithImei2Route);
+app.use("/SendLawyerEmailMobileReport", SendLawyerEmailMobileReportRouter)
 // app.use("/getRandevuListFuRefNo2", getRandevuListFuReferanceNo2Router);
 app.use("/getVisitedDetail", getVisitedDetailRouter);
 app.use("/getVisitedListByImeiNo", getVisitedListByImeiNoRouter);
@@ -152,5 +163,33 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
+const sqlite3 = require('sqlite3');
+const db = new sqlite3.Database('./routes/islemler.db',(err)=>{
+    if(err) console.log(err);
+    else console.log("DataBase bağlantısı yapıldı");
+});
+
+// var sql = "INSERT INTO islemler (islem_id, category) VALUES (?,?)";
+// var params = ["2","3"];
+// db.all(sql,params,(err,rows) => {
+//     if(err){
+//         console.log(err)
+//     }
+//     console.log("inserted:",rows);
+// })
+
+
+// let islemSchema = new Schema({
+//     id: String,
+//     category: String,
+// })
+
+// let Islem = mongoose.model('islem',islemSchema);
+
+// Islem.create({id: "aa",category:"1"}, (err, result) => {
+//     if (err) throw err;
+//     console.log(result);
+//   });
 
 module.exports = app;

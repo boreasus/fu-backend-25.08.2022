@@ -26,7 +26,7 @@ function getWorkFollowDetailXmlV2(paramFuReferansNo, pIntIsinTipi, callback) {
     }
     soap.createClient(url, function(err, client) {
         client.GetIstakipDetailXMLV2(params, function(err, result) {
-            const data = result["GetIstakipDetailXMLV2Result"];
+             data = result?.["GetIstakipDetailXMLV2Result"];
             callback(data);
         })
 
@@ -36,21 +36,32 @@ function getWorkFollowDetailXmlV2(paramFuReferansNo, pIntIsinTipi, callback) {
 router.get(("/api/fu_mobile/check/GetIstakipDetailXMLV2/:paramFuReferansNo/:pIntIsinTipi"), (req, res) => {
     const paramFuReferansNo = req.params.paramFuReferansNo;
     const pIntIsinTipi = req.params.pIntIsinTipi;
+
+    
+
+
+
     getWorkFollowDetailXmlV2(paramFuReferansNo, pIntIsinTipi, (data) => {
-        parseString(data, { explicitArray: false }, (err, response) => {
-            var sira = response["IsTakip"]["Sira"];
-            sira = sira.replaceAll("-", ":");
-            //console.log(sira);
-            sira = JSON.parse(sira);
-            response["IsTakip"]["Sira"] = sira;
-            console.log(response);
-            if (err) {
-                return res.status(400).send(err)
-            }
-            return res.send({
-                data: response
+        if(data){
+            parseString(data, { explicitArray: false }, (err, response) => {
+                var sira = response["IsTakip"]["Sira"];
+                sira = sira.replaceAll("-", ":");
+                sira = JSON.parse(sira);
+                response["IsTakip"]["Sira"] = sira;
+                console.log(response);
+                if (err) {
+                    return res.status(400).send(err)
+                }
+                return res.send({
+                    data: response
+                })
             })
-        })
+        }
+        else{
+            return res.send({
+                data: "error",
+            })
+        }
     });
 })
 

@@ -20,97 +20,137 @@ var router = express.Router();
 
 
 
-const soapRequest = require('easy-soap-request');
-// example data
-const xmll = `
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.fu.com.tr/Webservices">
-   <soap:Header>
-      <web:AuthHeader>
-         <!--Optional:-->
-         <web:Username>!1Tradesoft1!</web:Username>
-         <!--Optional:-->
-         <web:Password>x1w2q3!!4#IUYMD97F3M3YWRAJ65375X</web:Password>
-      </web:AuthHeader>
-   </soap:Header>
-   <soap:Body>
-      <web:Login_ByImei_New>
-         <!--Optional:-->
-         <web:paramImeiNo>A8B4084027</web:paramImeiNo>
-      </web:Login_ByImei_New>
-   </soap:Body>
-</soap:Envelope>
-`;
+const axios = require('axios')
+let xmlParser = require('xml2json')
 
+const testFu = (paramImeiNo,callback) => {
 
+    const data = `<?xml version="1.0" encoding="utf-8"?>
+    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Header>
+        <AuthHeader xmlns="http://www.fu.com.tr/Webservices">
+          <Username>!1Tradesoft1!</Username>
+          <Password>x1w2q3!!4#IUYMD97F3M3YWRAJ65375X</Password>
+        </AuthHeader>
+      </soap:Header>
+      <soap:Body>
+        <Login_ByImei_New xmlns="http://www.fu.com.tr/Webservices">
+          <paramImeiNo>${paramImeiNo}</paramImeiNo>
+        </Login_ByImei_New>
+      </soap:Body>
+    </soap:Envelope>`
 
+    const config = {
+        method: 'post',
+        url: 'http://212.58.21.132:81/BusinessService/IsTakipService.asmx?op=Login_ByImei_New',
+        headers: { 
+          'SOAPAction': 'http://www.fu.com.tr/Webservices/Login_ByImei_New', 
+          'Content-Type': 'text/xml; charset=utf-8'
+        },
+        data : data
+      };
 
-
-
-
-function loginByImei(paramImeiNo, callback) {
-    const params = {
-        paramImeiNo: paramImeiNo,
-
-    }
-
-// usage of module
-soapRequest({url, xmll}).then(({response: {body, statusCode}}) => {
-    console.log(body);
-    console.log(statusCode);
-    callback(body);
-}).catch((errorBody) => {
-    console.error(errorBody);
-});
-
-
-
+    axios(config)
+    .then((response) => {
+        const json = xmlParser.toJson(response.data)
+        callback(response.data);
+    })
+    .catch((err) => {
+        console.log('err', err)
+    })
 }
 
 
+const sqlite3 = require('sqlite3');
+const { reject } = require("lodash");
+const db = new sqlite3.Database('./routes/islemler.db',(err)=>{
+    if(err) console.log(err);
+    else console.log("DataBase bağlantısı yapıldı2");
+});
+var sql = "INSERT INTO islemler (islem_id, category) VALUES (?,?)";
 
-//     soap.createClient(url, function(err, client) {
+var parent = {};
+var child = []
+parent.child = child;
 
-//         client.addSoapHeader('<web:AuthHeader><!--Optional:--><web:Username>!1Tradesoft1!</web:Username><!--Optional:--><web:Password>x1w2q3!!4#IUYMD97F3M3YWRAJ65375X</web:Password>');
 
-          
-//         client.Login_ByImei_New(params, function(err, result) {
-//             console.log("aaaaaaaaaa>>>>>>>>> \n\n\n\n\n");
-//             console.log(client.lastRequest);
-//             const data = result
-//             console.log("data\n\n\n", data.body);
-//             callback(data);
-//         })
-//     })
-// }
+async function getCategory(sqlForSearch){
+    return new Promise((resolve,reject) =>{
+        db.get(sqlForSearch, async (err,rows) => {
+            if(err){
+                return reject(err);
+            }
+            else{
+                console.log("aaa = > ",rows['category'] )
+                resolve(rows['category']);
+            }
+        })
+    })
+    
+
+}
 
 router.get(("/api/fu_mobile/Login_ByImei/:paramImeiNo"), (req, res) => {
     const paramImeiNo = req.params.paramImeiNo;
-    loginByImei(paramImeiNo, (data) => {
-        parseString(data, (err, response) => {
+    testFu(paramImeiNo, (data) => {
+
+        parseString(data, {explicitArray:false},  async (err, response) =>  {
             if (err) {
                 return res.status(400).send(err)
             }
-            return res.send({
-                data: response
-            })
-        })
-    });
-})
+            var jsob = response["soap:Envelope"]["soap:Body"]["Login_ByImei_NewResponse"]["Login_ByImei_NewResult"]["diffgr:diffgram"]["DocumentElement"]["Login_ByImei_New"];
+            
+            
+            for (var i = 0; i < jsob.length; i++) {
+                var obj = jsob[i];
+                // console.log(">>"+obj.New_FuReferansNo);
 
-router.post(("/api/fu_mobile/Login_ByImei"), (req, res) => {
-    const paramImeiNo = req.params.paramImeiNo;
-    loginByImei(paramImeiNo, (data) => {
-        console.log('Res>>>>>>>', data)
-        parseString(data, (err, response) => {
-            if (err) {
-                return res.status(400).send(err)
+                //adding to database
+                var params = [obj.New_FuReferansNo,"99"];
+                db.all(sql,params,(err,rows) => {
+                    if(err){
+                        console.log("bu id ile daha önce işlem oluşturulduğu için pass geçildi");
+                    }
+                })
+
+
+                //creating json object
+                var Ad = obj.Ad;
+                var FullName = obj.FullName;
+                var New_FuReferansNo = obj.New_FuReferansNo;
+                var New_TapuRandevuTarihi = obj.New_TapuRandevuTarihi;
+                var CreatedOn = obj.CreatedOn;
+                var New_IsinTipi = obj.New_IsinTipi;
+                var VeriKullanimIzni = obj.VeriKullanimIzni;
+                var sqlForSearch = `SELECT category FROM islemler WHERE islem_id = "${New_FuReferansNo}"`;
+                let categoryForJson = await getCategory(sqlForSearch); 
+          
+                
+            var islem = {
+                "Ad": Ad,
+                "FullName": FullName,
+                "New_FuReferansNo": New_FuReferansNo,
+                "New_TapuRandevuTarihi": New_TapuRandevuTarihi,
+                "FullName": FullName,
+                "CreatedOn": CreatedOn,
+                "New_IsinTipi": New_IsinTipi,
+                "VeriKullanimIzni": VeriKullanimIzni,
+                "Category": `${categoryForJson}`,
+                }
+            console.log("islem>>>",islem);
+            parent.child.push(islem);
+            
+
             }
+            var response = JSON.parse(JSON.stringify(parent)).child;
+            parent.child = [];
+
             return res.send({
-                data: response
+                 data: response
+
             })
         })
     });
-
 })
 
 module.exports = router;

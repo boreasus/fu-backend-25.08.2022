@@ -14,6 +14,7 @@ const { Module } = require("module");
 app.use(express.urlencoded({ extended: true }));
 const xmlparser = require('express-xml-bodyparser');
 const xml = require("xml");
+const { response } = require("../app");
 app.use(express.json())
 app.use(xmlparser());
 var router = express.Router();
@@ -28,7 +29,8 @@ function updateStatusOfPushLogs(pPushLogId, pPushLogStatus,callback) {
     soap.createClient(url, function(err, client) {
 
         client.UpdateStatusOfPushLog(params, function(err, result) {
-           const data = result['UpdateStatusOfPushLogResult'];
+           const data = result?.UpdateStatusOfPushLogResult;
+           
            console.log('data',data)
             callback(data);
         })
@@ -39,17 +41,22 @@ router.get(("/api/fu_mobile/UpdateStatusOfPushLog/:pPushLogId/:pPushLogStatus"),
     const pPushLogId = req.params.pPushLogId;
     const pPushLogStatus = req.params.pPushLogStatus
     updateStatusOfPushLogs(pPushLogId,pPushLogStatus,(data)=>{
-        parseString(data,(err,response) =>{
-            parseString(data,(err,response)=>{
-                console.log('data',data)
-                if(err){
-                    return res.status(400).send(err)
-                }
-                return res.send({
-                    data:response
+        if(data){
+            return res.send({
+                data:data       
+                 })
+            parseString(data,(err,response) =>{
+                parseString(data,(err,response)=>{
+                    console.log('data',data)
+                    if(err){
+                        return res.status(400).send(err)
+                    }
+                    return res.send({
+                        data:response
+                    })
                 })
             })
-        })
+        }
     })
 })
 

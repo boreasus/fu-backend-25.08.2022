@@ -25,7 +25,7 @@ var router = express.Router();
 function getMainBanks(callback) {
     soap.createClient(url, function(err, client) {
         client.Get_AnaBankalar(function(err, result) {
-            data = result["Get_AnaBankalarResult"];
+            data = result["Get_AnaBankalarResult"]
             
             callback(data);
         })
@@ -35,7 +35,7 @@ function getMainBanks(callback) {
 
 router.get(("/api/fu_mobile/Get_AnaBankalar"), (req, res) => {
     getMainBanks((data)=>{
-        parseString(data, (err,response) => {
+        parseString(data, {explicitArray:false},(err,response) => {
             console.log('res', response)
             console.log('err', err)
             if(err) {
@@ -44,7 +44,7 @@ router.get(("/api/fu_mobile/Get_AnaBankalar"), (req, res) => {
                 })
             }
             return res.send({
-                data: response
+                data: response['AnaFirmalar']['Firma']
             })
         })
     });

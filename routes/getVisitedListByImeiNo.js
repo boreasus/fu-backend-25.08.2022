@@ -30,13 +30,13 @@ function getVisitedList(ImeiNO,callback) {
 router.get(("/api/fu_mobile/Get_ZiyaretList_ByImeiNO/:ImeiNO"), (req, res) => {
     const ImeiNO = req.params.ImeiNO
     getVisitedList(ImeiNO,(data)=>{
-        parseString(data, (err, response) => {
+        parseString(data,{explicitArray:false}, (err, response) => {
             console.log('res', response)
             if(err) {
                 return res.status(400).send(err)
             }
             return res.send({
-                data: response
+                data: response['Ziyaretler']['Ziyaret']
             })
         })
     });
@@ -45,23 +45,6 @@ router.get(("/api/fu_mobile/Get_ZiyaretList_ByImeiNO/:ImeiNO"), (req, res) => {
 
 
 
-let data = {
-    Get_ZiyaretList_ByImeiNO: [{
-        "ImeiNO": "7080449043",
-    }]
-}
-router.post(("/api/fu_mobile/Get_ZiyaretList_ByImeiNO"), (req, res) => {
-    let body = req.body;
-    let query = req.query;
 
-    data.Get_ZiyaretList_ByImeiNO.push(body);
-    if (query.type === 'xml') {
-        res.set('Content-type', 'text/xml');
-        return res.send(xml(data, true));
-    } else {
-        return res.send(data);
-    }
-
-})
 
 module.exports = router;

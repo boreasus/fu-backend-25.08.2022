@@ -1,0 +1,2007 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Fu Mobile",
+    "description": ""
+  },
+  "host": "",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {},
+  "paths": {
+    "(/api/fu_mobile/GetYapilacakMutabakat/{strImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "strImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "strImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/fu_mobile/Get_Randevu_Tarihi/{paramImeiNo}/{paramReferenceNo}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramImeiNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramReferenceNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Randevu_Tarihi)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/fu_mobile/CheckMutabakatAvukati/{pStrImeiNo}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "pStrImeiNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/CheckMutabakatAvukati)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/CheckPin/{strPin}/{strTcKimlikNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "strPin",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "strTcKimlikNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/checkPin)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/check/checkSmsMobile/{ImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/check/createMobileSession/{ImeiNO}/{SmsId)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ImeiNO",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "SmsId)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/check/getAppointmentData)": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Attachments_ByIsTakipGuid/{paramIsTakipGuid)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramIsTakipGuid)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Attachments_ByIsTakipGuid)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/getBankBranch/{AnaBankaId}/)": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "AnaBankaId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Randevu_Iptal_Nedenleri_List/{FuRefNo}/{firstHourOfDay)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "FuRefNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "firstHourOfDay)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Randevu_Iptal_Nedenleri_List)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/check/GetCountOfLastYearFromTapuDairesi/{strImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "strImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/check/GetCountOfLastYearFromTapuDairesi)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_OFF_Days_From_SystemUser_With_Imei2/{Imei2}/{blnKayitIslemi}/{DayOff_Start}/{DayOff_Finish)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "Imei2",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "blnKayitIslemi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "DayOff_Start",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "DayOff_Finish)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetEvrakTeslimTarihiListIstakibi/{ImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetEvrakTeslimTarihiListIstakibi)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_DynamicAttributes)": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetTapuDairesiListWithImeiNo/{pStrImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "pStrImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetTapuDairesiListWithImeiNo)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_LawyerAppointments_ByImeiNo/{ImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_LawyerAppointments_ByImeiNo)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_LawyerTransactionsWithoutAppointment_ByImeiNo/{ImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/fu_mobile/GetList_TercihEdilmeSebebi": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetList_TercihEdilmeSebebi)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_AnaBankalar)": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Mobile_App_Actions/{FuReferenceNumber)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "FuReferenceNumber)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Mobile_App_Actions)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Mobile_App_ActionsV2/{FuReferenceNumber)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "FuReferenceNumber)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Mobile_App_ActionsV2)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Notification_Departments)": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_Notification_StandartText)": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetPerformansTablosu/{strImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "strImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetPerformansTablosu)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetPushLogs_WithFuReferenceNumber/{paramFuReferansNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramFuReferansNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetPushLogs_WithFuReferenceNumber)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetPushLogs_WithImei2/{Imei2)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "Imei2)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetPushLogs_WithImei2)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetRandevuList_Get_By_FuRefNoV2/{FuRefNo}/{firstHourOfDay)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "FuRefNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "firstHourOfDay)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetRandevuList_Get_By_FuRefNoV2)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_ZiyaretDetayi_ByZiyaretID/{ZiyaretId)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ZiyaretId)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_ZiyaretList_ByImeiNO/{ImeiNO)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ImeiNO)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_ZiyaretList_ByImeiNO)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_ZiyaretPerformansi_ByImeiNO/{ImeiNO)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "ImeiNO)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Get_ZiyaretPerformansi_ByImeiNO)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIsTakip_Get_By_ImeiNo/{pStrImeiNo}/{pStrFirstDate}/{pStrLastDate)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "pStrImeiNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrFirstDate",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrLastDate)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIsTakibiCountWithDisAvukatTcImeiNoOfThisMonth/{strImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "strImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIsTakibiCountWithDisAvukatTcImeiNoOfThisMonth)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIstakipDetail/{paramFuReferansNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramFuReferansNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIstakipDetail)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIstakipDetailV2/{paramFuReferansNo}/{pIntIsinTipi)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramFuReferansNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pIntIsinTipi)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIstakipDetailV2)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIstakipDetailXML/{paramFuReferansNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramFuReferansNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramFuReferansNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/check/GetIstakipDetailXMLV2/{paramFuReferansNo}/{pIntIsinTipi)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramFuReferansNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pIntIsinTipi)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/GetIstakipDetailXMLV2)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "(/api/fu_mobile/CheckMutabakatAvukati/{paramRefenceNumber}/{paramAttachmentName}/{paramAttachmentBody}/{paramAttachmentBody)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramRefenceNumber",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentBody",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentBody)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_With_Reference_Number)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_With_Reference_Number_PDF_Images/{paramReferenceNumber}/{paramAttachmentName}/{imageData}/{IpotekBelgesiYuklenmeTarihi}/{islemTuru)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramReferenceNumber",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imageData",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "IpotekBelgesiYuklenmeTarihi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "islemTuru)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_With_Reference_Number_PDF_Images)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_With_Reference_Number_PDF_ImagesWitoutMoveFlow/{paramReferenceNumber}/{paramAttachmentName}/{imageData}/{IpotekBelgesiYuklenmeTarihi}/{islemTuru)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramReferenceNumber",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imageData",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "IpotekBelgesiYuklenmeTarihi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "islemTuru)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_With_Reference_Number_PDF_ImagesWitoutMoveFlow)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_With_Reference_Number_PDF_V2/{paramReferenceNumber}/{paramAttachmentName}/{paramBase64AttachmentBody}/{IpotekBelgesiYuklenmeTarihi}/{islemTuru)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramReferenceNumber",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramBase64AttachmentBody",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "IpotekBelgesiYuklenmeTarihi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "islemTuru)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_With_Reference_Number_PDF_V2)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_ByIsTakipGuid/{paramIsTakipGuid}/{paramImeiNo}/{paramAttachmentName}/{paramAttachmentBody}/{paramAttachmentBody)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramIsTakipGuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramImeiNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentBody",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramAttachmentBody)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_Attachment_ByIsTakipGuid)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/InsertFile/{fileName}/{file)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/InsertFile)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_LawyerAppointment/{paramReferenceNo}/{paramTime}/{paramYear}/{paramMonth}/{paramDay)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramReferenceNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramTime",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramYear",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramMonth",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramDay)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Insert_LawyerAppointment)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/InsertOrUpdateZiyaretByZiyaretId/{pGuidNew_Banka_ZiyaretiId}/{imei}/{pDtZiyaret_Tarihi}/{pGuidSubeId}/{pStrTitle}/{pStrIletisimNumarasi}/{pStrGorusulenKisininAdiSoyadi}/{pStrAylikIslemSayisi}/{pBLnRakipFirmaIleCalisiyorMu}/{pStrRakipFirmaAdi}/{pStrRakipFirmaAciklamasi}/{pIntTercihEdilmeSebebiId}/{pStrTercihEdilmeSebebi}/{pStrGenelAciklama}/{pIntIlkUygunlukNotu}/{pIntTesisAsamasindaMMNot}/{pIntTesisSonrasiMMNot}/{pIntTesisSonrasiHUNot}/{pIntTesisSonrasiETNot}/{pIntFuIletisimNot}/{pStrMusteriOneriText}/{Email)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "pGuidNew_Banka_ZiyaretiId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "imei",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pDtZiyaret_Tarihi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pGuidSubeId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrTitle",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrIletisimNumarasi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrGorusulenKisininAdiSoyadi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrAylikIslemSayisi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pBLnRakipFirmaIleCalisiyorMu",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrRakipFirmaAdi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrRakipFirmaAciklamasi",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Login_ByImei/{paramImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/Login_ByImei)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/MobileTapuRandevuAtama/{paramReferenceNo}/{paramTime}/{paramYear}/{paramMonth}/{paramDay)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "paramReferenceNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramTime",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramYear",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramMonth",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramDay)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/MobileTapuRandevuAtama)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/sendLawyerEmailMobileReport/{strImeiNo}/{pStrFirstDate}/{pStrLastDate)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "strImeiNo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrFirstDate",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pStrLastDate)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/UpdateMutabakatMuhasebeOnayinaGonder/{pGuidMutabakatId)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "pGuidMutabakatId)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/UpdateMutabakatMuhasebeOnayinaGonder)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/UpdateVeriKullanimIzni/{pStrImeiNo)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "pStrImeiNo)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/UpdateVeriKullanimIzni)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/updatePin/{strPin}/{strTckimlikNO)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "strPin",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "strTckimlikNO)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/updatePin)": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/UpdateStatusOfPushLog/{pPushLogId}/{pPushLogStatus)}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "pPushLogId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pPushLogStatus)",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "(/api/fu_mobile/UpdateStatusOfPushLog)": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

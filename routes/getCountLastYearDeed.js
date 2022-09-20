@@ -37,13 +37,13 @@ function getCountLastYearDeed(ImeiNo,callback) {
 router.get(("/api/fu_mobile/check/GetCountOfLastYearFromTapuDairesi/:strImeiNo"), (req, res) => {
     const strImeiNo = req.params.strImeiNo
     getCountLastYearDeed(strImeiNo,(data)=>{
-        parseString(data, (err, response) => {
+        parseString(data,{explicitArray:false}, (err, response) => {
             console.log('res', response)
             if(err) {
                 return res.status(400).send(err)
             }
             return res.send({
-                data: response
+                data: response['IslemSayilari']['IslemSayisi']
             })
         })
     });

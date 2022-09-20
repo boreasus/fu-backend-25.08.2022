@@ -22,7 +22,7 @@ const doc = {
     components: {} // by default: empty object (OpenAPI 3.x)
 };
 
-const outputFile = './deneme.json';
+const outputFile = './swagger2.json';
 const endpointsFiles = ["./routes/*.js"];
 
 /* NOTE: if you use the express Router, you must pass in the 
