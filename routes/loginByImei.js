@@ -63,6 +63,7 @@ const testFu = (paramImeiNo,callback) => {
 
 const sqlite3 = require('sqlite3');
 const { reject } = require("lodash");
+const e = require("express");
 const db = new sqlite3.Database('./routes/islemler.db',(err)=>{
     if(err) console.log(err);
     else console.log("DataBase bağlantısı yapıldı2");
@@ -106,12 +107,22 @@ router.get(("/api/fu_mobile/Login_ByImei/:paramImeiNo"), (req, res) => {
                 // console.log(">>"+obj.New_FuReferansNo);
 
                 //adding to database
-                var params = [obj.New_FuReferansNo,"99"];
+                if(!obj.New_TapuRandevuTarihi){
+                    var params = [obj.New_FuReferansNo,"99"];
                 db.all(sql,params,(err,rows) => {
                     if(err){
                         console.log("bu id ile daha önce işlem oluşturulduğu için pass geçildi");
                     }
                 })
+                }
+                else{
+                    var params = [obj.New_FuReferansNo,"1"];
+                db.all(sql,params,(err,rows) => {
+                    if(err){
+                        console.log("bu id ile daha önce işlem oluşturulduğu için pass geçildi");
+                    }
+                })
+                }
 
 
                 //creating json object

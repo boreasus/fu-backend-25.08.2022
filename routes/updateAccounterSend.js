@@ -40,7 +40,7 @@ router.get(("/api/fu_mobile/UpdateMutabakatMuhasebeOnayinaGonder/:pGuidMutabakat
             console.log('Res>>>>>>>', response)
             if (err) {
                 return res.send({
-                    data: data
+                    data: `${data['UpdateMutabakatMuhasebeOnayinaGonderResult']}`
                 })
             }
             
@@ -57,7 +57,7 @@ router.post(("/api/fu_mobile/UpdateMutabakatMuhasebeOnayinaGonder"), (req, res) 
                 return res.status(400).send(err)
             }
             return res.send({
-                data: response
+                data: `${response}`
             })
         })
     });
