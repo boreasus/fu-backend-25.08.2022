@@ -35,13 +35,16 @@ function getPushLogs(paramFuReferansNo,callback) {
 router.get(("/api/fu_mobile/GetPushLogs_WithFuReferenceNumber/:paramFuReferansNo"), (req, res) => {
     paramFuReferansNo = req.params.paramFuReferansNo
     getPushLogs(paramFuReferansNo,(data)=>{
-        parseString(data, (err, response) => {
+        parseString(data,{explicitArray:false}, (err, response) => {
             console.log('res', response)
+            console.log(response.PushLogs.PushLog);
+
             if(err) {
                 return res.status(400).send(err)
             }
             return res.send({
-                data: response
+
+                data: response.PushLogs.PushLog
             })
         })
     })
